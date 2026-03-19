@@ -151,8 +151,8 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     }
     .ba-after-img { display: block; width: 100%; height: auto; max-height: 480px; object-fit: cover; }
-    .ba-before-overlay { position: absolute; top: 0; left: 0; bottom: 0; width: 50%; overflow: hidden; }
-    .ba-before-overlay img { width: 900px; max-width: none; height: 100%; object-fit: cover; object-position: left center; }
+    .ba-before-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; clip-path: inset(0 50% 0 0); }
+    .ba-before-overlay img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
     .ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 4px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
     .ba-handle-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--blue); flex-shrink: 0; }
     .ba-labels { display: flex; justify-content: space-between; margin-top: 0.7rem; max-width: 900px; margin-left: auto; margin-right: auto; }
@@ -202,6 +202,7 @@
     #rules .section-label { color: var(--sand); }
     #rules .section-label::before { background: var(--sand); }
     #rules .section-title { color: var(--white); }
+    #rules .section-title em { color: var(--sand); }
     .rules-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
     .rule-card { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1.6rem; border: 1px solid rgba(255,255,255,0.15); transition: background 0.2s; }
     .rule-card:hover { background: rgba(255,255,255,0.15); }
@@ -577,8 +578,8 @@
     <div class="container">
       <p class="section-label reveal"><span class="en">House Rules</span><span class="cs">Domovní řád</span></p>
       <h2 class="section-title reveal">
-        <span class="en">Treat it like a<br><em>dear friend's home.</em></span>
-        <span class="cs">Chovejte se jako<br><em>u dobrého přítele.</em></span>
+        <span class="en">Treat it the way you'd<br><em>treat a friend's place.</em></span>
+        <span class="cs">Chovejte se tu, jak byste<br><em>se chovali u kamaráda.</em></span>
       </h2>
       <div class="rules-grid">
         <div class="rule-card reveal">
@@ -666,8 +667,8 @@
     <div class="container">
       <p class="section-label reveal"><span class="en">The Hosts</span><span class="cs">Vaši hostitelé</span></p>
       <h2 class="section-title reveal">
-        <span class="en">Two humans.<br>That love mountains.</span>
-        <span class="cs">Dva lidé.<br>Kteří milují hory.</span>
+        <span class="en">Two friends.<br>That love mountains.</span>
+        <span class="cs">Dva přátelé.<br>Kteří milují hory.</span>
       </h2>
       <p class="section-body reveal">
         <span class="en">One palace. A lot of weekends. A questionable number of tile decisions.</span>
@@ -1037,8 +1038,8 @@
         const rect = slider.getBoundingClientRect();
         let pct = (x - rect.left) / rect.width;
         pct = Math.min(Math.max(pct, 0.02), 0.98);
-        overlay.style.width = (pct * 100) + '%';
-        handle.style.left   = (pct * 100) + '%';
+        overlay.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+        handle.style.left = (pct * 100) + '%';
       }
 
       slider.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
