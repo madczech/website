@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O'Hara — Apartment in Horní Blatná</title>
+  <meta name="description" content="A funky, cozy apartment in the heart of the Ore Mountains. Born 1832. Reborn now." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:      #1A50D8;
+      --blue-dark: #1240B8;
+      --cream:     #F8F2E6;
+      --sand:      #C9A96E;
+      --dark:      #1A1A1A;
+      --mid:       #555555;
+      --light:     #E8E0D0;
+      --white:     #FFFFFF;
+      --teal:      #6B9EA0;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-accent:  'Space Grotesk', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); overflow-x: hidden; }
+    img  { display: block; max-width: 100%; }
+    a    { color: inherit; text-decoration: none; }
+
+    /* ── Language toggle ── */
+    body.lang-en .cs { display: none !important; }
+    body.lang-cs .en { display: none !important; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(248,242,230,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(26,80,216,0.1);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+    .nav-logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: var(--blue); letter-spacing: -0.02em; }
+
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-accent); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark); opacity: 0.75; transition: opacity 0.2s, color 0.2s; }
+    .nav-links a:hover { opacity: 1; color: var(--blue); }
+
+    .nav-right { display: flex; align-items: center; gap: 0.8rem; }
+
+    .lang-btn {
+      font-family: var(--font-accent); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: transparent; border: 1.5px solid var(--blue);
+      color: var(--blue); padding: 0.45rem 0.9rem; border-radius: 100px;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn:hover { background: var(--blue); color: var(--white); }
+
+    .nav-cta { font-family: var(--font-accent); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 100px; transition: background 0.2s, transform 0.15s; }
+    .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    #hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('images/after/living1.jpg'); background-size: cover; background-position: center 30%; filter: brightness(0.52); transform: scale(1.05); animation: heroZoom 12s ease forwards; }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.0); } }
+    .hero-content { position: relative; z-index: 2; text-align: center; padding: 0 1.5rem; animation: fadeUp 1.2s ease forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow { font-family: var(--font-accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sand); margin-bottom: 1rem; }
+    .hero-title { font-family: var(--font-display); font-size: clamp(5rem, 14vw, 11rem); font-weight: 900; line-height: 0.9; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.2rem; }
+    .hero-title em { font-style: italic; color: var(--sand); }
+    .hero-tagline { font-family: var(--font-display); font-size: clamp(1.1rem, 2.5vw, 1.6rem); font-weight: 400; font-style: italic; color: rgba(255,255,255,0.88); margin-bottom: 2.4rem; }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { font-family: var(--font-accent); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: 0.9rem 2rem; border-radius: 100px; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-ghost { font-family: var(--font-accent); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border: 1.5px solid rgba(255,255,255,0.6); color: var(--white); padding: 0.9rem 2rem; border-radius: 100px; transition: border-color 0.2s, background 0.2s; }
+    .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+    .hero-scroll { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; animation: bounce 2s ease infinite; }
+    .hero-scroll span { font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .container-narrow { max-width: 760px; margin: 0 auto; }
+    .section-label { font-family: var(--font-accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+    .section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--blue); }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 1.4rem; }
+    .section-title em { font-style: italic; color: var(--blue); }
+    .section-body { font-size: 1.05rem; line-height: 1.75; color: var(--mid); max-width: 640px; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── STORY ── */
+    #story { background: var(--dark); color: var(--white); }
+    #story .section-label { color: var(--sand); }
+    #story .section-label::before { background: var(--sand); }
+    #story .section-title { color: var(--white); }
+    #story .section-title em { color: var(--sand); }
+
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+    .story-text p { font-size: 1.05rem; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 1.2rem; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-text strong { color: var(--sand); font-weight: 600; }
+
+    .story-images { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .story-exterior-card {
+      position: relative; border-radius: 6px; overflow: hidden;
+      box-shadow: 8px 8px 0 var(--sand);
+    }
+    .story-exterior-card img { width: 100%; height: 240px; object-fit: cover; object-position: center 40%; filter: saturate(0.7); }
+    .story-exterior-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      background: rgba(0,0,0,0.75); color: var(--sand);
+      font-family: var(--font-accent); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.4rem 0.8rem; border-radius: 4px;
+    }
+
+    .story-interior-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .story-interior-row img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; }
+    .story-interior-row img:first-child { box-shadow: -6px 6px 0 var(--blue); }
+    .story-interior-row img:last-child  { box-shadow:  6px 6px 0 rgba(201,169,110,0.5); }
+
+    /* ── TRANSFORMATION ── */
+    #transformation { background: var(--cream); padding: 6rem 2rem; }
+
+    .ba-pair { margin-bottom: 3.5rem; }
+    .ba-pair:last-child { margin-bottom: 0; }
+    .ba-pair-label {
+      font-family: var(--font-accent); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 0.8rem;
+    }
+
+    .ba-wrapper {
+      position: relative; overflow: hidden; border-radius: 6px;
+      max-width: 900px; margin: 0 auto;
+      cursor: col-resize; user-select: none;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .ba-after-img { display: block; width: 100%; height: auto; max-height: 480px; object-fit: cover; }
+    .ba-before-overlay { position: absolute; top: 0; left: 0; bottom: 0; width: 50%; overflow: hidden; }
+    .ba-before-overlay img { width: 900px; max-width: none; height: 100%; object-fit: cover; object-position: left center; }
+    .ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 4px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+    .ba-handle-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--blue); flex-shrink: 0; }
+    .ba-labels { display: flex; justify-content: space-between; margin-top: 0.7rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .ba-labels span { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--white); padding: 6rem 2rem; }
+    .gallery-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 260px; gap: 10px; }
+    .gallery-grid .g-wide { grid-column: span 2; }
+    .gallery-grid .g-tall { grid-row: span 2; }
+    .gallery-item { overflow: hidden; border-radius: 4px; position: relative; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent,rgba(0,0,0,0.6)); color: var(--white); padding: 1.2rem 1rem 0.8rem; font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover .gallery-item-label { opacity: 1; }
+
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.92); align-items: center; justify-content: center; padding: 2rem; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border-radius: 4px; }
+    .lightbox-close { position: fixed; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.12); border: none; cursor: pointer; color: var(--white); font-size: 1.4rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    .lightbox-prev, .lightbox-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: var(--white); cursor: pointer; width: 48px; height: 48px; border-radius: 50%; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.2); }
+
+    /* ── APARTMENT ── */
+    #apartment { background: var(--cream); }
+    .apt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .apt-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .stat-card { background: var(--white); border-radius: 8px; padding: 1.5rem; border-left: 3px solid var(--blue); }
+    .stat-card .stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--blue); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-card .stat-label { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+    .amenities-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+    .amenity { display: flex; align-items: center; gap: 0.7rem; font-size: 0.92rem; color: var(--mid); }
+    .amenity svg { color: var(--blue); flex-shrink: 0; }
+    .amenity.na { opacity: 0.45; }
+    .amenity.na svg { color: var(--mid); }
+    .apt-image-col img { width: 100%; height: 480px; object-fit: cover; border-radius: 6px; box-shadow: 16px 16px 0 var(--blue); }
+    .apt-address { margin-top: 2.5rem; padding: 1.5rem; background: var(--dark); border-radius: 8px; color: var(--white); }
+    .apt-address p { font-family: var(--font-accent); font-size: 0.88rem; line-height: 1.9; color: rgba(255,255,255,0.75); }
+    .apt-address a { color: var(--sand); text-decoration: underline; text-underline-offset: 3px; }
+    .apt-address strong { color: var(--white); display: block; margin-bottom: 0.4rem; }
+
+    /* ── RULES ── */
+    #rules { background: var(--blue); color: var(--white); }
+    #rules .section-label { color: var(--sand); }
+    #rules .section-label::before { background: var(--sand); }
+    #rules .section-title { color: var(--white); }
+    .rules-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .rule-card { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 1.6rem; border: 1px solid rgba(255,255,255,0.15); transition: background 0.2s; }
+    .rule-card:hover { background: rgba(255,255,255,0.15); }
+    .rule-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .rule-title { font-family: var(--font-accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sand); margin-bottom: 0.4rem; }
+    .rule-text { font-size: 0.94rem; line-height: 1.6; color: rgba(255,255,255,0.82); }
+    .rules-spirits { margin-top: 3rem; padding: 2rem; background: rgba(0,0,0,0.25); border-radius: 8px; border-left: 3px solid var(--sand); font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.88); text-align: center; }
+
+    /* ── PEOPLE ── */
+    #people { background: var(--white); }
+    .people-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3.5rem; }
+    .person-card { border-radius: 8px; overflow: hidden; background: var(--cream); }
+    .person-card-top { background: var(--blue); padding: 2rem 2rem 1.5rem; }
+    .person-name { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+    .person-title { font-family: var(--font-accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); }
+    .person-card-body { padding: 1.5rem 2rem; }
+    .person-bio { font-size: 0.98rem; line-height: 1.75; color: var(--mid); }
+
+    /* ── TRIPS ── */
+    #trips { background: var(--cream); }
+    .trips-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .trip-card { border-radius: 8px; overflow: hidden; background: var(--white); border: 1px solid var(--light); transition: transform 0.25s, box-shadow 0.25s; }
+    .trip-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.10); }
+    .trip-card-illo { height: 200px; overflow: hidden; }
+    .trip-card-illo svg { width: 100%; height: 100%; display: block; }
+    .trip-card-body { padding: 1.5rem; }
+    .trip-tag { font-family: var(--font-accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .trip-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 0.6rem; }
+    .trip-text { font-size: 0.92rem; line-height: 1.7; color: var(--mid); }
+    .trip-text a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark); color: var(--white); }
+    #contact .section-label { color: var(--sand); }
+    #contact .section-label::before { background: var(--sand); }
+    #contact .section-title { color: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+    .contact-block h3 { font-family: var(--font-accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sand); margin-bottom: 1.2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
+    .contact-item-icon { width: 40px; height: 40px; flex-shrink: 0; background: rgba(255,255,255,0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--sand); }
+    .contact-item-text p { font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.7); }
+    .contact-item-text strong { display: block; font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.15rem; }
+    .contact-item-text a { color: var(--sand); text-decoration: underline; text-underline-offset: 3px; }
+    .pricing-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 2rem; }
+    .pricing-amount { font-family: var(--font-display); font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+    .pricing-amount span { font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
+    .pricing-note { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 1.6rem; }
+    .pricing-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: 0.9rem 1.8rem; border-radius: 100px; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; width: 100%; justify-content: center; }
+    .pricing-cta:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer { background: #111; color: rgba(255,255,255,0.45); padding: 2rem; text-align: center; font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.06em; }
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.4rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .story-grid, .apt-grid, .contact-grid, .people-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .rules-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+      .gallery-grid .g-wide { grid-column: span 1; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 1.2rem; }
+      .rules-grid { grid-template-columns: 1fr; }
+      .trips-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+      .gallery-grid .g-wide, .gallery-grid .g-tall { grid-column: span 1; grid-row: span 1; }
+      .apt-stats { grid-template-columns: 1fr 1fr; }
+      .story-interior-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">O'Hara</a>
+    <ul class="nav-links">
+      <li><a href="#story"><span class="en">Story</span><span class="cs">Příběh</span></a></li>
+      <li><a href="#gallery"><span class="en">Gallery</span><span class="cs">Galerie</span></a></li>
+      <li><a href="#apartment"><span class="en">The Flat</span><span class="cs">Byt</span></a></li>
+      <li><a href="#trips"><span class="en">Trips</span><span class="cs">Výlety</span></a></li>
+      <li><a href="#people"><span class="en">Us</span><span class="cs">My</span></a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-btn" id="langToggle">CZ</button>
+      <a href="#contact" class="nav-cta"><span class="en">Book Now</span><span class="cs">Rezervovat</span></a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">
+        <span class="en">Horní Blatná · Ore Mountains · Since 1832</span>
+        <span class="cs">Horní Blatná · Krušné hory · Od roku 1832</span>
+      </p>
+      <h1 class="hero-title">O'<em>Hara</em></h1>
+      <p class="hero-tagline">
+        <span class="en">Funny outside. Unforgettable inside.</span>
+        <span class="cs">Zvenku vtipný. Uvnitř nezapomenutelný.</span>
+      </p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn-primary">
+          <span class="en">See the apartment</span>
+          <span class="cs">Prohlédnout byt</span>
+        </a>
+        <a href="#contact" class="btn-ghost">
+          <span class="en">Book your stay</span>
+          <span class="cs">Rezervovat pobyt</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span><span class="en">Scroll</span><span class="cs">Dolů</span></span>
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <div class="container">
+      <p class="section-label reveal">
+        <span class="en">The Story</span><span class="cs">Příběh</span>
+      </p>
+      <h2 class="section-title reveal">
+        <span class="en">A palace, <em>reborn.</em></span>
+        <span class="cs">Palác, <em>znovuzrozený.</em></span>
+      </h2>
+      <p class="section-body reveal">
+        <span class="en">Built in 1832. Beaten by a century of Ore Mountain winters. Ignored for decades. Then two guys born on the same day walked in — and fell completely in love with it.</span>
+        <span class="cs">Postaven roku 1832. Ztýrán stoletím krušnohorských zim. Na desetiletí zapomenut. Pak přišli dva chlapci, narození ve stejný den — a úplně do něj přišli.</span>
+      </p>
+
+      <div class="story-grid">
+        <div class="story-text reveal">
+          <p>
+            <span class="en">We love mountains — and there is very little that <strong>Horní Blatná</strong> can't offer. Great skiing slopes, amazing trails, the spirit of <em>Berggeist</em> around every corner, a steak restaurant, a natural swimming pool.</span>
+            <span class="cs">Milujeme hory — a jen máloco nabídne tolik co <strong>Horní Blatná</strong>. Skvělé sjezdovky, úžasné trasy, duch <em>Berggeista</em> za každým rohem, restaurace se steakem, přírodní koupaliště.</span>
+          </p>
+          <p>
+            <span class="en">It took two big humans, <strong>both born on August 13th</strong>, family help, a lot of weekends and late nights to bring it back to life. <strong>Oak herringbone floors. Design lights. Heated floors.</strong> A Swedish 5★ mattress. Limited budget. Unlimited stubbornness.</span>
+            <span class="cs">Trvalo to dvěma velkým chlapákům, <strong>oběma narozeným 13. srpna</strong>, rodinné pomoci, spoustě víkendů a pozdních nocí. <strong>Dubové rybí podlahy. Designová světla. Podlahové topení.</strong> Švédská matrace 5★. Omezený rozpočet. Neomezená tvrdohlavost.</span>
+          </p>
+          <p>
+            <span class="en">The hardest part? Making decisions. One early lesson: choose the smallest tiles possible — then change your mind about how to place them as many times as you can.</span>
+            <span class="cs">Nejtěžší část? Rozhodování. Jeden brzký poznatek: vyberte si co nejmenší dlaždice — a pak co nejčastěji měňte názor na to, jak je uložit.</span>
+          </p>
+          <p>
+            <span class="en">The apartment is small. We know. But we expect everyone to spend as much time <strong>outside as possible</strong>. When you are inside — relax to the fullest.</span>
+            <span class="cs">Byt je malý. Víme. Ale čekáme, že všichni stráví co nejvíce času <strong>venku</strong>. Když jste uvnitř — odpočívejte naplno.</span>
+          </p>
+        </div>
+
+        <div class="story-images reveal">
+          <div class="story-exterior-card">
+            <img src="images/before/before5.jpg" alt="The building from outside" />
+            <div class="story-exterior-badge">
+              <span class="en">Your home for the weekend ↑</span>
+              <span class="cs">Váš víkendový domov ↑</span>
+            </div>
+          </div>
+          <div class="story-interior-row">
+            <img src="images/after/hallway.jpg" alt="Blue door frame with antlers" />
+            <img src="images/after/bedroom.jpg" alt="Cozy bedroom" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section id="transformation">
+    <div class="container">
+      <p class="section-label reveal">
+        <span class="en">Transformation</span><span class="cs">Proměna</span>
+      </p>
+      <h2 class="section-title reveal">
+        <span class="en">Before &amp; <em>After</em></span>
+        <span class="cs">Před &amp; <em>Po</em></span>
+      </h2>
+      <p class="section-body reveal">
+        <span class="en">Drag the slider to see where it all started.</span>
+        <span class="cs">Posuňte posuvník a uvidíte, kde to vše začalo.</span>
+      </p>
+
+      <!-- Slider 1: living room -->
+      <div class="ba-pair reveal">
+        <p class="ba-pair-label">
+          <span class="en">The living room</span>
+          <span class="cs">Obývací pokoj</span>
+        </p>
+        <div class="ba-wrapper" data-slider="1">
+          <img class="ba-after-img" src="images/after/living2.jpg" alt="After" />
+          <div class="ba-before-overlay">
+            <img src="images/before/before2.jpg" alt="Before" />
+          </div>
+          <div class="ba-handle">
+            <div class="ba-handle-circle">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ba-labels">
+          <span><span class="en">⬅ Before</span><span class="cs">⬅ Před</span></span>
+          <span><span class="en">After ➡</span><span class="cs">Po ➡</span></span>
+        </div>
+      </div>
+
+      <!-- Slider 2: kitchen area -->
+      <div class="ba-pair reveal">
+        <p class="ba-pair-label">
+          <span class="en">The kitchen &amp; dining area</span>
+          <span class="cs">Kuchyň a jídelna</span>
+        </p>
+        <div class="ba-wrapper" data-slider="2">
+          <img class="ba-after-img" src="images/after/kitchen.jpg" alt="After" />
+          <div class="ba-before-overlay">
+            <img src="images/before/before4.jpg" alt="Before" />
+          </div>
+          <div class="ba-handle">
+            <div class="ba-handle-circle">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="ba-labels">
+          <span><span class="en">⬅ Before</span><span class="cs">⬅ Před</span></span>
+          <span><span class="en">After ➡</span><span class="cs">Po ➡</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">Gallery</span><span class="cs">Galerie</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Every corner <em>tells a story.</em></span>
+        <span class="cs">Každý kout <em>vypráví příběh.</em></span>
+      </h2>
+      <div class="gallery-grid">
+        <div class="gallery-item g-wide reveal" onclick="openLightbox(0)">
+          <img src="images/after/kitchen.jpg" alt="Open plan" />
+          <div class="gallery-item-label"><span class="en">Living room & kitchen</span><span class="cs">Obývák & kuchyň</span></div>
+        </div>
+        <div class="gallery-item g-tall reveal" onclick="openLightbox(1)">
+          <img src="images/after/living1.jpg" alt="Morning light" />
+          <div class="gallery-item-label"><span class="en">Morning light</span><span class="cs">Ranní světlo</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(2)">
+          <img src="images/after/bedroom.jpg" alt="Bedroom" />
+          <div class="gallery-item-label"><span class="en">Bedroom</span><span class="cs">Ložnice</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(3)">
+          <img src="images/after/hallway.jpg" alt="Hallway" />
+          <div class="gallery-item-label"><span class="en">The hallway</span><span class="cs">Chodba</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(4)">
+          <img src="images/after/bathroom.jpg" alt="Bathroom" />
+          <div class="gallery-item-label"><span class="en">Bathroom</span><span class="cs">Koupelna</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(5)">
+          <img src="images/after/living3.jpg" alt="Sofa" />
+          <div class="gallery-item-label"><span class="en">The living room</span><span class="cs">Obývací pokoj</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(6)">
+          <img src="images/after/kitchen2.jpg" alt="Kitchen" />
+          <div class="gallery-item-label"><span class="en">Kitchen</span><span class="cs">Kuchyň</span></div>
+        </div>
+        <div class="gallery-item reveal" onclick="openLightbox(7)">
+          <img src="images/after/living2.jpg" alt="Full room" />
+          <div class="gallery-item-label"><span class="en">Full room view</span><span class="cs">Celkový pohled</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APARTMENT -->
+  <section id="apartment">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">The Flat</span><span class="cs">Byt</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Small space.<br><em>Big life.</em></span>
+        <span class="cs">Malý prostor.<br><em>Velký život.</em></span>
+      </h2>
+      <div class="apt-grid">
+        <div class="reveal">
+          <div class="apt-stats">
+            <div class="stat-card">
+              <div class="stat-value">38</div>
+              <div class="stat-label"><span class="en">Square metres</span><span class="cs">Čtverečních m.</span></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">4</div>
+              <div class="stat-label"><span class="en">Guests max</span><span class="cs">Max. hostů</span></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">1</div>
+              <div class="stat-label"><span class="en">Bedroom</span><span class="cs">Ložnice</span></div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">1832</div>
+              <div class="stat-label"><span class="en">Year built</span><span class="cs">Rok stavby</span></div>
+            </div>
+          </div>
+          <h3 style="font-family:var(--font-accent);font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;">
+            <span class="en">What's included</span><span class="cs">Co je zahrnuto</span>
+          </h3>
+          <div class="amenities-list">
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M17 2l-5 5-5-5"/></svg>
+              Smart TV
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span class="en">Fully equipped kitchen</span><span class="cs">Plně vybavená kuchyň</span>
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M2 12h20M2 6h20M2 18h20"/></svg>
+              <span class="en">Heated oak floor</span><span class="cs">Vyhřívané dubové podlahy</span>
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M12 12v3"/></svg>
+              <span class="en">Dishwasher</span><span class="cs">Myčka</span>
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              <span class="en">Coffee machine</span><span class="cs">Kávovar</span>
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <span class="en">Ski storage</span><span class="cs">Úložiště lyží</span>
+            </div>
+            <div class="amenity">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <span class="en">Board games</span><span class="cs">Stolní hry</span>
+            </div>
+            <div class="amenity na">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M1.414 1.414L22.586 22.586M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+              <span class="en">WiFi (coming soon)</span><span class="cs">WiFi (brzy)</span>
+            </div>
+          </div>
+          <div class="apt-address">
+            <strong><span class="en">How to find us</span><span class="cs">Kde nás najdete</span></strong>
+            <p>
+              Hamerská 38, 362 35 Horní Blatná<br/>
+              +420 605 288 014<br/>
+              <a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank">
+                <span class="en">Open in Google Maps ↗</span>
+                <span class="cs">Otevřít v Google Maps ↗</span>
+              </a><br/>
+              <span class="en">Parking: card access, right in front of the building</span>
+              <span class="cs">Parkování: přístup na kartu, přímo před budovou</span>
+            </p>
+          </div>
+        </div>
+        <div class="apt-image-col reveal">
+          <img src="images/after/living4.jpg" alt="O'Hara living room and kitchen" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section id="rules">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">House Rules</span><span class="cs">Domovní řád</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Treat it like a<br><em>dear friend's home.</em></span>
+        <span class="cs">Chovejte se jako<br><em>u dobrého přítele.</em></span>
+      </h2>
+      <div class="rules-grid">
+        <div class="rule-card reveal">
+          <div class="rule-icon">🕙</div>
+          <div class="rule-title"><span class="en">Check-in</span><span class="cs">Příjezd</span></div>
+          <div class="rule-text">
+            <span class="en">From 10:00 am. We'll sort the handover together — just reach out in advance.</span>
+            <span class="cs">Od 10:00. Předání si domluvíme — stačí se ozvat předem.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">🕓</div>
+          <div class="rule-title"><span class="en">Check-out</span><span class="cs">Odjezd</span></div>
+          <div class="rule-text">
+            <span class="en">By 4:00 pm. Leave the place as you'd find a friend's flat.</span>
+            <span class="cs">Do 16:00. Nechte byt tak, jak byste ho chtěli najít.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">🌳</div>
+          <div class="rule-title"><span class="en">Go outside</span><span class="cs">Vyrazte ven</span></div>
+          <div class="rule-text">
+            <span class="en">The apartment is cozy but small. It was designed for people who spend their days in the mountains.</span>
+            <span class="cs">Byt je útulný, ale malý. Je navržen pro lidi, kteří tráví dny v horách.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">💧</div>
+          <div class="rule-title"><span class="en">The floor is precious</span><span class="cs">Podlaha je poklad</span></div>
+          <div class="rule-text">
+            <span class="en">Oak herringbone. Absolutely not a fan of water. We're serious about this one.</span>
+            <span class="cs">Dubový rybí vzor. Vodu nesnesou. To myslíme vážně.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">👋</div>
+          <div class="rule-title"><span class="en">The neighbours</span><span class="cs">Sousedé</span></div>
+          <div class="rule-text">
+            <span class="en">4 locals live in the building. Be very kind. They were here before us — and will be here after.</span>
+            <span class="cs">V budově žijí 4 místní. Buďte velmi laskavi. Byli tady před námi — a budou i po nás.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">🔥</div>
+          <div class="rule-title"><span class="en">Heated floor</span><span class="cs">Podlahové topení</span></div>
+          <div class="rule-text">
+            <span class="en">Keep it at 20°C. It takes time to warm up — plan ahead.</span>
+            <span class="cs">Nastavte na 20°C. Potřebuje čas na rozehřátí — plánujte dopředu.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">🚭</div>
+          <div class="rule-title"><span class="en">No smoking inside</span><span class="cs">Zákaz kouření uvnitř</span></div>
+          <div class="rule-text">
+            <span class="en">Take it outside. The mountains agree.</span>
+            <span class="cs">Kouřit se chodí ven. Hory souhlasí.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">♻️</div>
+          <div class="rule-title"><span class="en">Recycle</span><span class="cs">Třiďte odpad</span></div>
+          <div class="rule-text">
+            <span class="en">We do too. Bins are labelled.</span>
+            <span class="cs">My taky. Koše jsou označeny.</span>
+          </div>
+        </div>
+        <div class="rule-card reveal">
+          <div class="rule-icon">🐾</div>
+          <div class="rule-title"><span class="en">No pets</span><span class="cs">Bez mazlíčků</span></div>
+          <div class="rule-text">
+            <span class="en">Terka loves all animals — but the floor doesn't. Sorry, furry ones.</span>
+            <span class="cs">Terka miluje všechna zvířata — ale podlaha ne. Promiňte, chlupáči.</span>
+          </div>
+        </div>
+      </div>
+      <div class="rules-spirits reveal">
+        <span class="en">"Do not wander around the house after dark. There are spirits everywhere." — The Hosts</span>
+        <span class="cs">„Po setmění se neprocházejte po domě. Všude jsou duchové." — Hostitelé</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section id="people">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">The Hosts</span><span class="cs">Vaši hostitelé</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Two humans.<br>That love mountains.</span>
+        <span class="cs">Dva lidé.<br>Kteří milují hory.</span>
+      </h2>
+      <p class="section-body reveal">
+        <span class="en">One palace. A lot of weekends. A questionable number of tile decisions.</span>
+        <span class="cs">Jeden palác. Spousta víkendů. Sporný počet rozhodnutí o dlaždicích.</span>
+      </p>
+      <div class="people-grid">
+        <div class="person-card reveal">
+          <div class="person-card-top">
+            <div class="person-name">Michal Kotek</div>
+            <div class="person-title"><span class="en">Trouble Explorer</span><span class="cs">Průzkumník problémů</span></div>
+          </div>
+          <div class="person-card-body">
+            <p class="person-bio">
+              <span class="en">A lifelong explorer of different paths that complicate his life. He enjoys good human company, design and mountains. The kind of person who installs herringbone floors on a Tuesday night.</span>
+              <span class="cs">Celoživotní průzkumník cest, které mu komplikují život. Rád má dobrou lidskou společnost, design a hory. Typ člověka, který instaluje dubové podlahy v úterý večer.</span>
+            </p>
+          </div>
+        </div>
+        <div class="person-card reveal">
+          <div class="person-card-top" style="background: var(--teal);">
+            <div class="person-name">Terka Falátková</div>
+            <div class="person-title"><span class="en">Ski Instructor & Dog Whisperer</span><span class="cs">Instruktorka lyžování & psí šeptačka</span></div>
+          </div>
+          <div class="person-card-body">
+            <p class="person-bio">
+              <span class="en">The greatest dog whisperer in Krušné hory. She knows everything about the Ore Mountains. If she is not smiling, something is wrong. Accompanied at all times by Amálka — 3× Dog Olympics champion, particularly strong in mathematics and ski chewing.</span>
+              <span class="cs">Největší psí šeptačka v Krušných horách. Zná hory jako svoji botu. Pokud se nesměje, něco je špatně. Doprovázena Amálkou — trojnásobnou olympijskou šampionkou, obzvláště silnou v matematice a žvýkání lyží.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIPS & TIPS -->
+  <section id="trips">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">Trips & Tips</span><span class="cs">Výlety & Tipy</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Get out there.<br><em>The mountains are waiting.</em></span>
+        <span class="cs">Vyrazte ven.<br><em>Hory čekají.</em></span>
+      </h2>
+      <div class="trips-grid">
+
+        <!-- Skiing -->
+        <div class="trip-card reveal">
+          <div class="trip-card-illo">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#EBF3FC"/>
+              <!-- sky dots -->
+              <circle cx="60" cy="30" r="3" fill="white" opacity="0.8"/>
+              <circle cx="120" cy="18" r="2" fill="white" opacity="0.6"/>
+              <circle cx="310" cy="25" r="3" fill="white" opacity="0.7"/>
+              <circle cx="360" cy="14" r="2" fill="white" opacity="0.5"/>
+              <!-- mountains back -->
+              <polygon points="0,160 100,60 200,160" fill="#1A50D8" opacity="0.12"/>
+              <polygon points="100,160 200,55 300,160" fill="#1A50D8" opacity="0.20"/>
+              <polygon points="200,160 310,70 400,160" fill="#1A50D8" opacity="0.13"/>
+              <!-- snow caps -->
+              <polygon points="200,55 185,88 215,88" fill="white" opacity="0.9"/>
+              <polygon points="100,60 88,90 112,90" fill="white" opacity="0.7"/>
+              <!-- slope line -->
+              <line x1="80" y1="160" x2="320" y2="100" stroke="white" stroke-width="2" stroke-dasharray="10,7" opacity="0.5"/>
+              <!-- pine trees -->
+              <g fill="#1A50D8" opacity="0.35">
+                <polygon points="28,160 40,136 52,160"/>
+                <polygon points="44,160 56,140 68,160"/>
+                <polygon points="336,160 348,136 360,160"/>
+                <polygon points="352,160 364,140 376,160"/>
+              </g>
+              <!-- skier -->
+              <g transform="translate(210,118)">
+                <circle cx="0" cy="-14" r="9" fill="#C9A96E"/>
+                <rect x="-6" y="-5" width="12" height="18" rx="4" fill="#1A50D8"/>
+                <line x1="-3" y1="13" x2="-10" y2="24" stroke="#1A50D8" stroke-width="3" stroke-linecap="round"/>
+                <line x1="3" y1="13" x2="12" y2="24" stroke="#1A50D8" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-14" y1="25" x2="2" y2="27" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+                <line x1="8" y1="25" x2="22" y2="27" stroke="#C9A96E" stroke-width="3" stroke-linecap="round"/>
+                <line x1="-5" y1="-2" x2="-22" y2="18" stroke="#1A50D8" stroke-width="2" opacity="0.7"/>
+                <line x1="5" y1="-2" x2="22" y2="18" stroke="#1A50D8" stroke-width="2" opacity="0.7"/>
+              </g>
+              <!-- ground -->
+              <rect y="160" width="400" height="40" fill="#1A50D8" opacity="0.08"/>
+            </svg>
+          </div>
+          <div class="trip-card-body">
+            <div class="trip-tag">⛷ <span class="en">Skiing & Snowboarding</span><span class="cs">Lyžování & Snowboard</span></div>
+            <div class="trip-title">Klínovec, Abertamy &amp; Pernink</div>
+            <p class="trip-text">
+              <span class="en">Three resorts within easy reach — Klínovec is the highest peak in Bohemia. Abertamy and the Ski Ring in Pernink offer a more relaxed vibe. Terka is a professional ski instructor — if she has time, she's happy to improve your technique. Just ask!</span>
+              <span class="cs">Tři střediska v dosahu — Klínovec je nejvyšší vrchol Čech. Abertamy a Ski Ring v Perninku nabízí klidnější atmosféru. Terka je profesionální instruktorka — pokud má čas, ráda zlepší vaši techniku. Stačí se zeptat!</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Hiking -->
+        <div class="trip-card reveal">
+          <div class="trip-card-illo">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#F5EED8"/>
+              <!-- sun -->
+              <circle cx="340" cy="45" r="28" fill="#C9A96E" opacity="0.25"/>
+              <circle cx="340" cy="45" r="20" fill="#C9A96E" opacity="0.45"/>
+              <!-- mountain ridgeline -->
+              <polygon points="0,180 60,90 120,140 180,70 260,130 320,80 400,130 400,200 0,200" fill="#1A50D8" opacity="0.12"/>
+              <polygon points="0,180 80,110 150,155 220,95 290,140 360,100 400,120 400,200 0,200" fill="#1A50D8" opacity="0.18"/>
+              <!-- pine trees group left -->
+              <g fill="#1A50D8" opacity="0.45">
+                <polygon points="22,180 34,154 46,180"/>
+                <polygon points="36,180 48,158 60,180"/>
+                <polygon points="50,180 62,162 74,180"/>
+              </g>
+              <!-- pine trees group right -->
+              <g fill="#1A50D8" opacity="0.35">
+                <polygon points="310,180 322,156 334,180"/>
+                <polygon points="330,180 342,160 354,180"/>
+                <polygon points="350,180 362,158 374,180"/>
+              </g>
+              <!-- winding path -->
+              <path d="M140,200 C150,175 160,165 175,158 C190,150 200,148 215,145 C230,142 240,135 250,125" fill="none" stroke="#C9A96E" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+              <!-- hiker silhouette -->
+              <g transform="translate(175,145)" fill="#1A50D8" opacity="0.7">
+                <circle cx="0" cy="-22" r="7"/>
+                <rect x="-4" y="-15" width="8" height="14" rx="2"/>
+                <line x1="-4" y1="-1" x2="-7" y2="12" stroke="#1A50D8" stroke-width="2.5"/>
+                <line x1="4" y1="-1" x2="6" y2="12" stroke="#1A50D8" stroke-width="2.5"/>
+                <!-- walking stick -->
+                <line x1="6" y1="-10" x2="14" y2="12" stroke="#C9A96E" stroke-width="2" opacity="0.9"/>
+              </g>
+              <!-- ground -->
+              <rect y="180" width="400" height="20" fill="#C9A96E" opacity="0.1"/>
+            </svg>
+          </div>
+          <div class="trip-card-body">
+            <div class="trip-tag">🥾 <span class="en">Hiking Trails</span><span class="cs">Turistické trasy</span></div>
+            <div class="trip-title"><span class="en">The Ore Mountains on foot</span><span class="cs">Krušné hory pěšky</span></div>
+            <p class="trip-text">
+              <span class="en">We have plenty of trails to recommend — but some secrets are better shared in person. Ask us when you arrive and we'll point you to the ones tourists never find. The Berggeist might be watching.</span>
+              <span class="cs">Máme spoustu tras k doporučení — ale některá tajemství se lépe sdílí osobně. Zeptejte se nás při příjezdu a ukážeme vám ty, které turisté nikdy nenajdou. Berggeist možná sleduje.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Swimming -->
+        <div class="trip-card reveal">
+          <div class="trip-card-illo">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#E4F4F5"/>
+              <!-- sky glow -->
+              <ellipse cx="200" cy="0" rx="200" ry="60" fill="#6B9EA0" opacity="0.1"/>
+              <!-- tree reflections (upside down, blurred) -->
+              <g opacity="0.15" transform="translate(0,200) scale(1,-1)">
+                <polygon points="30,0 44,30 58,0" fill="#1A50D8"/>
+                <polygon points="330,0 344,28 358,0" fill="#1A50D8"/>
+                <polygon points="360,0 374,25 388,0" fill="#1A50D8"/>
+              </g>
+              <!-- pond / water -->
+              <ellipse cx="200" cy="140" rx="155" ry="42" fill="#6B9EA0" opacity="0.35"/>
+              <ellipse cx="200" cy="140" rx="130" ry="34" fill="#6B9EA0" opacity="0.3"/>
+              <!-- water ripples -->
+              <ellipse cx="200" cy="138" rx="70" ry="10" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              <ellipse cx="200" cy="138" rx="40" ry="6" fill="none" stroke="white" stroke-width="1" opacity="0.4"/>
+              <!-- trees left -->
+              <g fill="#1A50D8" opacity="0.5">
+                <polygon points="22,155 36,122 50,155"/>
+                <polygon points="40,155 54,128 68,155"/>
+              </g>
+              <!-- trees right -->
+              <g fill="#1A50D8" opacity="0.4">
+                <polygon points="332,155 346,124 360,155"/>
+                <polygon points="350,155 364,128 378,155"/>
+              </g>
+              <!-- sun reflection on water -->
+              <ellipse cx="200" cy="128" rx="18" ry="5" fill="white" opacity="0.35"/>
+              <!-- sun -->
+              <circle cx="200" cy="52" r="22" fill="#C9A96E" opacity="0.5"/>
+              <circle cx="200" cy="52" r="14" fill="#C9A96E" opacity="0.6"/>
+              <!-- swimmer -->
+              <g transform="translate(200,132)">
+                <circle cx="0" cy="-6" r="8" fill="#C9A96E" opacity="0.9"/>
+                <path d="M-20,4 Q-10,0 0,2 Q10,0 20,4" fill="none" stroke="#1A50D8" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+              </g>
+              <rect y="182" width="400" height="18" fill="#6B9EA0" opacity="0.12"/>
+            </svg>
+          </div>
+          <div class="trip-card-body">
+            <div class="trip-tag">🏊 <span class="en">Natural Swimming Pond</span><span class="cs">Přírodní koupaliště</span></div>
+            <div class="trip-title"><span class="en">Follow the church path</span><span class="cs">Vydejte se ke kostelu</span></div>
+            <p class="trip-text">
+              <span class="en">Head towards the church, take a left, continue a bit, then right and uphill. Or just use <a href="http://mapy.cz" target="_blank">Mapy.cz</a> — far better than Google in Czech countryside.</span>
+              <span class="cs">Jděte ke kostelu, doleva, kousek rovně, pak doprava a do kopce. Nebo prostě použijte <a href="http://mapy.cz" target="_blank">Mapy.cz</a> — v česku daleko lepší než Google.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Eat & Drink -->
+        <div class="trip-card reveal">
+          <div class="trip-card-illo">
+            <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="200" fill="#FFF3E8"/>
+              <!-- table -->
+              <rect x="100" y="130" width="200" height="12" rx="4" fill="#C9A96E" opacity="0.6"/>
+              <rect x="115" y="142" width="10" height="36" rx="3" fill="#C9A96E" opacity="0.4"/>
+              <rect x="275" y="142" width="10" height="36" rx="3" fill="#C9A96E" opacity="0.4"/>
+              <!-- beer mug -->
+              <g transform="translate(130,60)">
+                <rect x="0" y="0" width="38" height="52" rx="5" fill="#1A50D8" opacity="0.8"/>
+                <rect x="2" y="2" width="34" height="10" rx="3" fill="white" opacity="0.5"/>
+                <path d="M38,12 Q52,12 52,28 Q52,44 38,44" fill="none" stroke="#1A50D8" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+                <!-- bubbles -->
+                <circle cx="12" cy="24" r="3" fill="white" opacity="0.4"/>
+                <circle cx="22" cy="32" r="2" fill="white" opacity="0.3"/>
+                <circle cx="28" cy="20" r="2.5" fill="white" opacity="0.35"/>
+              </g>
+              <!-- plate with steak -->
+              <g transform="translate(220,72)">
+                <ellipse cx="30" cy="44" rx="36" ry="10" fill="#C9A96E" opacity="0.2"/>
+                <ellipse cx="30" cy="38" rx="32" ry="32" fill="white" opacity="0.85"/>
+                <ellipse cx="30" cy="38" rx="24" ry="24" fill="#C9A96E" opacity="0.15"/>
+                <!-- steak shape -->
+                <path d="M18,34 Q22,22 34,24 Q44,26 42,36 Q40,46 30,46 Q18,46 18,34Z" fill="#C9A96E" opacity="0.7"/>
+                <path d="M22,32 Q28,28 36,30" fill="none" stroke="white" stroke-width="1.5" opacity="0.5"/>
+              </g>
+              <!-- fork -->
+              <g transform="translate(195,68)" stroke="#1A50D8" stroke-width="2.5" stroke-linecap="round" opacity="0.7">
+                <line x1="0" y1="0" x2="0" y2="55"/>
+                <line x1="-6" y1="0" x2="-6" y2="20"/>
+                <line x1="6" y1="0" x2="6" y2="20"/>
+                <path d="M-6,20 Q0,28 6,20"/>
+              </g>
+              <!-- knife -->
+              <g transform="translate(316,68)" stroke="#1A50D8" stroke-width="2.5" stroke-linecap="round" opacity="0.7">
+                <line x1="0" y1="0" x2="0" y2="55"/>
+                <path d="M0,0 Q8,10 6,22 Q3,28 0,30" fill="#1A50D8" opacity="0.3"/>
+              </g>
+              <!-- steam lines -->
+              <g stroke="#C9A96E" stroke-width="2" stroke-linecap="round" opacity="0.5">
+                <path d="M240,65 Q244,55 240,45" fill="none"/>
+                <path d="M255,60 Q259,50 255,40" fill="none"/>
+                <path d="M270,65 Q274,55 270,45" fill="none"/>
+              </g>
+              <rect y="182" width="400" height="18" fill="#C9A96E" opacity="0.08"/>
+            </svg>
+          </div>
+          <div class="trip-card-body">
+            <div class="trip-tag">🍺 <span class="en">Eat & Drink</span><span class="cs">Jídlo & Pití</span></div>
+            <div class="trip-title">Faustův Dvůr &amp; Rýžovna</div>
+            <p class="trip-text">
+              <span class="en">For a seriously good steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank">Faustův Dvůr</a>. For a great local beer in a place that feels like it hasn't changed in 50 years: <a href="https://www.ryzovna.cz/" target="_blank">Rýžovna</a>. Go to both.</span>
+              <span class="cs">Pro skvělý steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank">Faustův Dvůr</a>. Pro výborné místní pivo v místě, kde se za 50 let nic nezměnilo: <a href="https://www.ryzovna.cz/" target="_blank">Rýžovna</a>. Jděte do obou.</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label reveal"><span class="en">Contact & Book</span><span class="cs">Kontakt & Rezervace</span></p>
+      <h2 class="section-title reveal">
+        <span class="en">Ready for the<br><em>mountains?</em></span>
+        <span class="cs">Připraveni na<br><em>hory?</em></span>
+      </h2>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="contact-block">
+            <h3><span class="en">Get in touch</span><span class="cs">Kontaktujte nás</span></h3>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong><span class="en">Phone</span><span class="cs">Telefon</span></strong>
+                <p><a href="tel:+420605288014">+420 605 288 014</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong><span class="en">Address</span><span class="cs">Adresa</span></strong>
+                <p>Hamerská 38<br/>362 35 Horní Blatná<br/><a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank"><span class="en">Open in Google Maps ↗</span><span class="cs">Otevřít v Google Maps ↗</span></a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="contact-item-text">
+                <strong><span class="en">Minimum stay</span><span class="cs">Minimální pobyt</span></strong>
+                <p>
+                  <span class="en">2 nights — or talk to us. We'll work something out.</span>
+                  <span class="cs">2 noci — nebo se ozvěte. Domluvíme se.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="pricing-box">
+            <div class="pricing-amount">€100 <span>/ <span class="en">night</span><span class="cs">noc</span></span></div>
+            <p class="pricing-note">
+              <span class="en">Direct booking — no platform fees. Just us.</span>
+              <span class="cs">Přímá rezervace — bez poplatků platformy. Jen my.</span>
+            </p>
+            <a href="tel:+420605288014" class="pricing-cta">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span class="en">Call to book</span><span class="cs">Zavolejte a rezervujte</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <strong>O'Hara</strong> · Hamerská 38, Horní Blatná ·
+      <span class="en">Built with love (and questionable tile decisions) by</span>
+      <span class="cs">Postaveno s láskou (a sporným počtem rozhodnutí o dlaždicích) od</span>
+      <strong>Michal &amp; Terka</strong> · © 2026
+    </p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-prev" onclick="changeLightbox(-1)">‹</button>
+    <img id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" onclick="changeLightbox(1)">›</button>
+  </div>
+
+  <script>
+    // ── Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ── Language toggle
+    const langBtn = document.getElementById('langToggle');
+    langBtn.addEventListener('click', () => {
+      const body = document.body;
+      if (body.classList.contains('lang-en')) {
+        body.classList.replace('lang-en', 'lang-cs');
+        langBtn.textContent = 'EN';
+        document.documentElement.lang = 'cs';
+      } else {
+        body.classList.replace('lang-cs', 'lang-en');
+        langBtn.textContent = 'CZ';
+        document.documentElement.lang = 'en';
+      }
+    });
+
+    // ── Before/After Sliders (multi-instance)
+    document.querySelectorAll('.ba-wrapper').forEach(slider => {
+      const overlay = slider.querySelector('.ba-before-overlay');
+      const handle  = slider.querySelector('.ba-handle');
+      let dragging = false;
+
+      function setPos(x) {
+        const rect = slider.getBoundingClientRect();
+        let pct = (x - rect.left) / rect.width;
+        pct = Math.min(Math.max(pct, 0.02), 0.98);
+        overlay.style.width = (pct * 100) + '%';
+        handle.style.left   = (pct * 100) + '%';
+      }
+
+      slider.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
+      slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+      window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
+      window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, {passive:true});
+      window.addEventListener('mouseup',    () => dragging = false);
+      window.addEventListener('touchend',   () => dragging = false);
+    });
+
+    // ── Gallery lightbox
+    const galleryImages = [
+      'images/after/kitchen.jpg','images/after/living1.jpg','images/after/bedroom.jpg',
+      'images/after/hallway.jpg','images/after/bathroom.jpg','images/after/living3.jpg',
+      'images/after/kitchen2.jpg','images/after/living2.jpg',
+    ];
+    let currentIdx = 0;
+
+    function openLightbox(idx) {
+      currentIdx = idx;
+      document.getElementById('lightbox-img').src = galleryImages[idx];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function changeLightbox(dir) {
+      currentIdx = (currentIdx + dir + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentIdx];
+    }
+    document.getElementById('lightbox').addEventListener('click', e => { if (e.target === e.currentTarget) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape')     closeLightbox();
+      if (e.key === 'ArrowRight') changeLightbox(1);
+      if (e.key === 'ArrowLeft')  changeLightbox(-1);
+    });
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
