@@ -154,7 +154,7 @@
     .ba-before-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; clip-path: inset(0 50% 0 0); }
     .ba-before-overlay img { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
     .ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 4px; background: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
-    .ba-handle-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--blue); flex-shrink: 0; }
+    .ba-handle-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--white); box-shadow: 0 2px 12px rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--blue); flex-shrink: 0; pointer-events: all; cursor: col-resize; }
     .ba-labels { display: flex; justify-content: space-between; margin-top: 0.7rem; max-width: 900px; margin-left: auto; margin-right: auto; }
     .ba-labels span { font-family: var(--font-accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
 
@@ -292,7 +292,7 @@
     }
 
     #smiley-cursor.visible { opacity: 1; }
-    #smiley-cursor.clicking { transform: translate(-50%, -50%) scale(0.82); }
+    #smiley-cursor.clicking { transform: translate(-50%, -50%) scale(0.30); }
   </style>
 </head>
 <body class="lang-en">
@@ -1092,8 +1092,12 @@
         handle.style.left = (pct * 100) + '%';
       }
 
-      slider.addEventListener('mousedown',  e => { dragging = true; setPos(e.clientX); });
-      slider.addEventListener('touchstart', e => { dragging = true; setPos(e.touches[0].clientX); }, {passive:true});
+      const circle = slider.querySelector('.ba-handle-circle');
+      circle.style.pointerEvents = 'all';
+      circle.style.cursor = 'col-resize';
+
+      circle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
+      circle.addEventListener('touchstart', e => { dragging = true; }, {passive:true});
       window.addEventListener('mousemove',  e => { if (dragging) setPos(e.clientX); });
       window.addEventListener('touchmove',  e => { if (dragging) setPos(e.touches[0].clientX); }, {passive:true});
       window.addEventListener('mouseup',    () => dragging = false);
