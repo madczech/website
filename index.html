@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O'Hara — Apartment in Horní Blatná</title>
-  <meta name="description" content="A funky, cozy apartment in the heart of the Ore Mountains. Born 1832. Reborn now." />
+  <title>O'Hara | Ubytování Horní Blatná – Apartmán v Krušných horách</title>
+  <meta name="description" content="Stylový apartmán v srdci Krušných hor. Dubové podlahy, podlahové topení, lyžování na dosah. Postaveno 1832, znovuzrozeno teď. Rezervujte přímo bez poplatků." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.VASE-DOMENA.cz/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="O'Hara | Ubytování Horní Blatná – Apartmán v Krušných horách" />
+  <meta property="og:description" content="Stylový apartmán v srdci Krušných hor. Dubové podlahy, podlahové topení, lyžování na dosah. Rezervujte přímo bez poplatků." />
+  <meta property="og:image" content="https://www.VASE-DOMENA.cz/images/after/living1.jpg" />
+  <meta property="og:url" content="https://www.VASE-DOMENA.cz/" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:site_name" content="O'Hara Horní Blatná" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="O'Hara | Ubytování Horní Blatná" />
+  <meta name="twitter:description" content="Stylový apartmán v srdci Krušných hor. Rezervujte přímo bez poplatků." />
+  <meta name="twitter:image" content="https://www.VASE-DOMENA.cz/images/after/living1.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔</text></svg>" />
+
+  <!-- Structured Data: VacationRental -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "O'Hara – Apartmán Horní Blatná",
+    "description": "Stylový apartmán v srdci Krušných hor. Dubové podlahy, podlahové topení, plně vybavená kuchyň.",
+    "url": "https://www.VASE-DOMENA.cz/",
+    "telephone": "+420605288014",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Hamerská 38",
+      "addressLocality": "Horní Blatná",
+      "postalCode": "362 35",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.3896389,
+      "longitude": 12.7689950
+    },
+    "image": "https://www.VASE-DOMENA.cz/images/after/living1.jpg",
+    "priceRange": "€100/noc",
+    "numberOfRooms": 1,
+    "petsAllowed": false,
+    "smokingAllowed": false,
+    "checkinTime": "10:00",
+    "checkoutTime": "16:00",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Smart TV", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Plně vybavená kuchyň", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Podlahové topení", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Myčka", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Kávovar", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Parkování", "value": true}
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -295,7 +356,7 @@
     #smiley-cursor.clicking { transform: translate(-50%, -50%) scale(0.30); }
   </style>
 </head>
-<body class="lang-en">
+<body class="lang-cs">
 
   <!-- Smiley cursor -->
   <div id="smiley-cursor">
@@ -341,7 +402,7 @@
       <li><a href="#people"><span class="en">Us</span><span class="cs">My</span></a></li>
     </ul>
     <div class="nav-right">
-      <button class="lang-btn" id="langToggle">CZ</button>
+      <button class="lang-btn" id="langToggle">EN</button>
       <a href="#contact" class="nav-cta"><span class="en">Book Now</span><span class="cs">Rezervovat</span></a>
     </div>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -414,15 +475,15 @@
 
         <div class="story-images reveal">
           <div class="story-exterior-card">
-            <img src="images/before/before5.jpg" alt="The building from outside" />
+            <img src="images/before/before5.jpg" alt="Budova apartmánu O'Hara v Horní Blatné zvenku" width="2048" height="1536" loading="lazy" />
             <div class="story-exterior-badge">
               <span class="en">Your home for the weekend ↑</span>
               <span class="cs">Váš víkendový domov ↑</span>
             </div>
           </div>
           <div class="story-interior-row">
-            <img src="images/after/hallway.jpg" alt="Blue door frame with antlers" />
-            <img src="images/after/bedroom.jpg" alt="Cozy bedroom" />
+            <img src="images/after/hallway.jpg" alt="Modrý dveřní rám s parohy v apartmánu O'Hara" width="1536" height="2048" loading="lazy" />
+            <img src="images/after/bedroom.jpg" alt="Útulná ložnice apartmánu O'Hara s dubovou podlahou" width="1600" height="1200" loading="lazy" />
           </div>
         </div>
       </div>
@@ -451,9 +512,9 @@
           <span class="cs">Obývací pokoj</span>
         </p>
         <div class="ba-wrapper" data-slider="1">
-          <img class="ba-after-img" src="images/after/living2.jpg" alt="After" />
+          <img class="ba-after-img" src="images/after/living2.jpg" alt="Obývací pokoj po rekonstrukci" width="2048" height="1536" loading="lazy" />
           <div class="ba-before-overlay">
-            <img src="images/before/before2.jpg" alt="Before" />
+            <img src="images/before/before2.jpg" alt="Obývací pokoj před rekonstrukcí" width="1024" height="768" loading="lazy" />
           </div>
           <div class="ba-handle">
             <div class="ba-handle-circle">
@@ -474,9 +535,9 @@
           <span class="cs">Kuchyň a jídelna</span>
         </p>
         <div class="ba-wrapper" data-slider="2">
-          <img class="ba-after-img" src="images/after/kitchen.jpg" alt="After" />
+          <img class="ba-after-img" src="images/after/kitchen.jpg" alt="Kuchyně a jídelna po rekonstrukci" width="1600" height="1200" loading="lazy" />
           <div class="ba-before-overlay">
-            <img src="images/before/before4.jpg" alt="Before" />
+            <img src="images/before/before4.jpg" alt="Kuchyně a jídelna před rekonstrukcí" width="4032" height="3024" loading="lazy" />
           </div>
           <div class="ba-handle">
             <div class="ba-handle-circle">
@@ -502,35 +563,35 @@
       </h2>
       <div class="gallery-grid">
         <div class="gallery-item g-wide reveal" onclick="openLightbox(0)">
-          <img src="images/after/kitchen.jpg" alt="Open plan" />
+          <img src="images/after/kitchen.jpg" alt="Otevřený obývací pokoj s kuchyní v apartmánu O'Hara" width="1600" height="1200" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Living room & kitchen</span><span class="cs">Obývák & kuchyň</span></div>
         </div>
         <div class="gallery-item g-tall reveal" onclick="openLightbox(1)">
-          <img src="images/after/living1.jpg" alt="Morning light" />
+          <img src="images/after/living1.jpg" alt="Ranní světlo v obývacím pokoji apartmánu O'Hara" width="2048" height="1536" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Morning light</span><span class="cs">Ranní světlo</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(2)">
-          <img src="images/after/bedroom.jpg" alt="Bedroom" />
+          <img src="images/after/bedroom.jpg" alt="Ložnice s designovým osvětlením" width="1600" height="1200" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Bedroom</span><span class="cs">Ložnice</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(3)">
-          <img src="images/after/hallway.jpg" alt="Hallway" />
+          <img src="images/after/hallway.jpg" alt="Chodba s modrým rámem a parohy" width="1536" height="2048" loading="lazy" />
           <div class="gallery-item-label"><span class="en">The hallway</span><span class="cs">Chodba</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(4)">
-          <img src="images/after/bathroom.jpg" alt="Bathroom" />
+          <img src="images/after/bathroom.jpg" alt="Koupelna s moderními obklady" width="1200" height="1600" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Bathroom</span><span class="cs">Koupelna</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(5)">
-          <img src="images/after/living3.jpg" alt="Sofa" />
+          <img src="images/after/living3.jpg" alt="Pohovka v obývacím pokoji apartmánu" width="2048" height="1536" loading="lazy" />
           <div class="gallery-item-label"><span class="en">The living room</span><span class="cs">Obývací pokoj</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(6)">
-          <img src="images/after/kitchen2.jpg" alt="Kitchen" />
+          <img src="images/after/kitchen2.jpg" alt="Plně vybavená kuchyň apartmánu O'Hara" width="2048" height="1536" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Kitchen</span><span class="cs">Kuchyň</span></div>
         </div>
         <div class="gallery-item reveal" onclick="openLightbox(7)">
-          <img src="images/after/living2.jpg" alt="Full room" />
+          <img src="images/after/living2.jpg" alt="Celkový pohled na obývací pokoj s dubovou podlahou" width="2048" height="1536" loading="lazy" />
           <div class="gallery-item-label"><span class="en">Full room view</span><span class="cs">Celkový pohled</span></div>
         </div>
       </div>
@@ -607,7 +668,7 @@
             <p>
               Hamerská 38, 362 35 Horní Blatná<br/>
               +420 605 288 014<br/>
-              <a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank">
+              <a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank" rel="noopener noreferrer">
                 <span class="en">Open in Google Maps ↗</span>
                 <span class="cs">Otevřít v Google Maps ↗</span>
               </a><br/>
@@ -617,7 +678,7 @@
           </div>
         </div>
         <div class="apt-image-col reveal">
-          <img src="images/after/living4.jpg" alt="O'Hara living room and kitchen" />
+          <img src="images/after/living4.jpg" alt="Obývací pokoj a kuchyň apartmánu O'Hara v Horní Blatné" width="2048" height="1536" loading="lazy" />
         </div>
       </div>
     </div>
@@ -908,8 +969,8 @@
             <div class="trip-tag">🏊 <span class="en">Natural Swimming Pond</span><span class="cs">Přírodní koupaliště</span></div>
             <div class="trip-title"><span class="en">Follow the church path</span><span class="cs">Vydejte se ke kostelu</span></div>
             <p class="trip-text">
-              <span class="en">Head towards the church, take a left, continue a bit, then right and uphill. Or just use <a href="http://mapy.cz" target="_blank">Mapy.cz</a> — far better than Google in Czech countryside.</span>
-              <span class="cs">Jděte ke kostelu, doleva, kousek rovně, pak doprava a do kopce. Nebo prostě použijte <a href="http://mapy.cz" target="_blank">Mapy.cz</a> — v česku daleko lepší než Google.</span>
+              <span class="en">Head towards the church, take a left, continue a bit, then right and uphill. Or just use <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a> — far better than Google in Czech countryside.</span>
+              <span class="cs">Jděte ke kostelu, doleva, kousek rovně, pak doprava a do kopce. Nebo prostě použijte <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a> — v česku daleko lepší než Google.</span>
             </p>
           </div>
         </div>
@@ -967,8 +1028,8 @@
             <div class="trip-tag">🍺 <span class="en">Eat & Drink</span><span class="cs">Jídlo & Pití</span></div>
             <div class="trip-title">Faustův Dvůr &amp; Rýžovna</div>
             <p class="trip-text">
-              <span class="en">For a seriously good steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank">Faustův Dvůr</a>. For a great local beer in a place that feels like it hasn't changed in 50 years: <a href="https://www.ryzovna.cz/" target="_blank">Rýžovna</a>. Go to both.</span>
-              <span class="cs">Pro skvělý steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank">Faustův Dvůr</a>. Pro výborné místní pivo v místě, kde se za 50 let nic nezměnilo: <a href="https://www.ryzovna.cz/" target="_blank">Rýžovna</a>. Jděte do obou.</span>
+              <span class="en">For a seriously good steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank" rel="noopener noreferrer">Faustův Dvůr</a>. For a great local beer in a place that feels like it hasn't changed in 50 years: <a href="https://www.ryzovna.cz/" target="_blank" rel="noopener noreferrer">Rýžovna</a>. Go to both.</span>
+              <span class="cs">Pro skvělý steak: <a href="https://www.tripadvisor.com/Restaurant_Review-g947934-d4209810-Reviews-Faustuv_dvur-Horni_Blatna_Karlovy_Vary_Region_Bohemia.html" target="_blank" rel="noopener noreferrer">Faustův Dvůr</a>. Pro výborné místní pivo v místě, kde se za 50 let nic nezměnilo: <a href="https://www.ryzovna.cz/" target="_blank" rel="noopener noreferrer">Rýžovna</a>. Jděte do obou.</span>
             </p>
           </div>
         </div>
@@ -1004,7 +1065,7 @@
               </div>
               <div class="contact-item-text">
                 <strong><span class="en">Address</span><span class="cs">Adresa</span></strong>
-                <p>Hamerská 38<br/>362 35 Horní Blatná<br/><a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank"><span class="en">Open in Google Maps ↗</span><span class="cs">Otevřít v Google Maps ↗</span></a></p>
+                <p>Hamerská 38<br/>362 35 Horní Blatná<br/><a href="https://maps.google.com/?q=50.3896389,12.7689950" target="_blank" rel="noopener noreferrer"><span class="en">Open in Google Maps ↗</span><span class="cs">Otevřít v Google Maps ↗</span></a></p>
               </div>
             </div>
             <div class="contact-item">
@@ -1067,14 +1128,14 @@
     const langBtn = document.getElementById('langToggle');
     langBtn.addEventListener('click', () => {
       const body = document.body;
-      if (body.classList.contains('lang-en')) {
-        body.classList.replace('lang-en', 'lang-cs');
-        langBtn.textContent = 'EN';
-        document.documentElement.lang = 'cs';
-      } else {
+      if (body.classList.contains('lang-cs')) {
         body.classList.replace('lang-cs', 'lang-en');
         langBtn.textContent = 'CZ';
         document.documentElement.lang = 'en';
+      } else {
+        body.classList.replace('lang-en', 'lang-cs');
+        langBtn.textContent = 'EN';
+        document.documentElement.lang = 'cs';
       }
     });
 
