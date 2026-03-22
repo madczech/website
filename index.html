@@ -307,12 +307,31 @@
     .contact-item-text p { font-size: 0.88rem; line-height: 1.6; color: rgba(255,255,255,0.7); }
     .contact-item-text strong { display: block; font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.15rem; }
     .contact-item-text a { color: var(--sand); text-decoration: underline; text-underline-offset: 3px; }
-    .pricing-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 2rem; }
-    .pricing-amount { font-family: var(--font-display); font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+    .pricing-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1.4rem 2rem 1.6rem; }
+    .pricing-amount { font-family: var(--font-display); font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.2rem; }
     .pricing-amount span { font-size: 1.4rem; font-weight: 400; opacity: 0.6; }
-    .pricing-note { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 1.6rem; }
+    .pricing-note { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 0.8rem; }
     .pricing-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; background: var(--blue); color: var(--white); padding: 0.9rem 1.8rem; border-radius: 100px; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; width: 100%; justify-content: center; }
     .pricing-cta:hover { background: var(--blue-dark); transform: translateY(-2px); }
+
+    /* ── BOOKING FORM ── */
+    .booking-form { display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.8rem; }
+    .form-checkboxes { display: flex; flex-direction: column; gap: 0.45rem; padding-top: 0.2rem; }
+    .checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); cursor: pointer; }
+    .checkbox-label input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--blue); cursor: pointer; flex-shrink: 0; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-family: var(--font-accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 8px; padding: 0.65rem 0.9rem; color: var(--white); font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color 0.2s; width: 100%; box-sizing: border-box; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.2rem; }
+    .form-group select option { background: #1c1c2e; }
+    .form-group textarea { resize: vertical; min-height: 75px; }
+    .form-group input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.5) brightness(1.5); cursor: pointer; }
+    .form-status { font-size: 0.85rem; text-align: center; padding: 0.6rem; border-radius: 8px; margin-top: 0.3rem; display: none; }
+    .form-status.success { background: rgba(74,222,128,0.12); color: #4ade80; display: block; }
+    .form-status.error { background: rgba(248,113,113,0.12); color: #f87171; display: block; }
 
     /* ── FOOTER ── */
     footer { background: #111; color: rgba(255,255,255,0.45); padding: 2rem; text-align: center; font-family: var(--font-accent); font-size: 0.78rem; letter-spacing: 0.06em; }
@@ -449,27 +468,27 @@
         <span class="cs">Palác, <em>znovuzrozený.</em></span>
       </h2>
       <p class="section-body reveal">
-        <span class="en">Built in 1832. Beaten by a century of Ore Mountain winters. Ignored for decades. Then two guys born on the same day walked in — and fell completely in love with it.</span>
-        <span class="cs">Postaven roku 1832. Ztýrán stoletím krušnohorských zim. Na desetiletí zapomenut. Pak přišli dva chlapci, narození ve stejný den — a úplně do něj přišli.</span>
+        <span class="en">Built in 1832. Beaten by a century of Ore Mountain winters. Ignored for decades. Then two guys born on the same day walked in and fell completely in love with it.</span>
+        <span class="cs">Postaven roku 1832. Ztýrán stoletím krušnohorských zim. Na desetiletí zapomenut. Pak přišli dva chlapci, narození ve stejný den, a úplně do něj přišli.</span>
       </p>
 
       <div class="story-grid">
         <div class="story-text reveal">
           <p>
-            <span class="en">We love mountains — and there is very little that <strong>Horní Blatná</strong> can't offer. Great skiing slopes, amazing trails, the spirit of <em>Berggeist</em> around every corner, a steak restaurant, a natural swimming pool.</span>
-            <span class="cs">Milujeme hory — a jen máloco nabídne tolik co <strong>Horní Blatná</strong>. Skvělé sjezdovky, úžasné trasy, duch <em>Berggeista</em> za každým rohem, restaurace se steakem, přírodní koupaliště.</span>
+            <span class="en">We love mountains and there is very little that <strong>Horní Blatná</strong> can't offer. Great skiing slopes, amazing trails, the spirit of <em>Berggeist</em> around every corner, a steak restaurant, a natural swimming pool.</span>
+            <span class="cs">Milujeme hory a jen máloco nabídne tolik co <strong>Horní Blatná</strong>. Skvělé sjezdovky, úžasné trasy, duch <em>Berggeista</em> za každým rohem, restaurace se steakem, přírodní koupaliště.</span>
           </p>
           <p>
             <span class="en">It took two big humans, <strong>both born on August 13th</strong>, family help, a lot of weekends and late nights to bring it back to life. <strong>Oak herringbone floors. Design lights. Heated floors.</strong> A Swedish 5★ mattress. Limited budget. Unlimited stubbornness.</span>
             <span class="cs">Trvalo to dvěma velkým chlapákům, <strong>oběma narozeným 13. srpna</strong>, rodinné pomoci, spoustě víkendů a pozdních nocí. <strong>Dubové rybí podlahy. Designová světla. Podlahové topení.</strong> Švédská matrace 5★. Omezený rozpočet. Neomezená tvrdohlavost.</span>
           </p>
           <p>
-            <span class="en">The hardest part? Making decisions. One early lesson: choose the smallest tiles possible — then change your mind about how to place them as many times as you can.</span>
-            <span class="cs">Nejtěžší část? Rozhodování. Jeden brzký poznatek: vyberte si co nejmenší dlaždice — a pak co nejčastěji měňte názor na to, jak je uložit.</span>
+            <span class="en">The hardest part? Making decisions. One early lesson: choose the smallest tiles possible, then change your mind about how to place them as many times as you can.</span>
+            <span class="cs">Nejtěžší část? Rozhodování. Jeden brzký poznatek: vyberte si co nejmenší dlaždice, a pak co nejčastěji měňte názor na to, jak je uložit.</span>
           </p>
           <p>
-            <span class="en">The apartment is small. We know. But we expect everyone to spend as much time <strong>outside as possible</strong>. When you are inside — relax to the fullest.</span>
-            <span class="cs">Byt je malý. Víme. Ale čekáme, že všichni stráví co nejvíce času <strong>venku</strong>. Když jste uvnitř — odpočívejte naplno.</span>
+            <span class="en">The apartment is small. We know. But we expect everyone to spend as much time <strong>outside as possible</strong>. When you are inside, relax to the fullest.</span>
+            <span class="cs">Byt je malý. Víme. Ale čekáme, že všichni stráví co nejvíce času <strong>venku</strong>. Když jste uvnitř, odpočívejte naplno.</span>
           </p>
         </div>
 
@@ -697,8 +716,8 @@
           <div class="rule-icon">🕙</div>
           <div class="rule-title"><span class="en">Check-in</span><span class="cs">Příjezd</span></div>
           <div class="rule-text">
-            <span class="en">From 10:00 am. We'll sort the handover together — just reach out in advance.</span>
-            <span class="cs">Od 10:00. Předání si domluvíme — stačí se ozvat předem.</span>
+            <span class="en">From 10:00 am. We'll sort the handover together, just reach out in advance.</span>
+            <span class="cs">Od 10:00. Předání si domluvíme, stačí se ozvat předem.</span>
           </div>
         </div>
         <div class="rule-card reveal">
@@ -729,16 +748,16 @@
           <div class="rule-icon">👋</div>
           <div class="rule-title"><span class="en">The neighbours</span><span class="cs">Sousedé</span></div>
           <div class="rule-text">
-            <span class="en">4 locals live in the building. Be very kind. They were here before us — and will be here after.</span>
-            <span class="cs">V budově žijí 4 místní. Buďte velmi laskavi. Byli tady před námi — a budou i po nás.</span>
+            <span class="en">4 locals live in the building. Be very kind. They were here before us and will be here after.</span>
+            <span class="cs">V budově žijí 4 místní. Buďte velmi laskavi. Byli tady před námi a budou i po nás.</span>
           </div>
         </div>
         <div class="rule-card reveal">
           <div class="rule-icon">🔥</div>
           <div class="rule-title"><span class="en">Heated floor</span><span class="cs">Podlahové topení</span></div>
           <div class="rule-text">
-            <span class="en">Keep it at 20°C. It takes time to warm up — plan ahead.</span>
-            <span class="cs">Nastavte na 20°C. Potřebuje čas na rozehřátí — plánujte dopředu.</span>
+            <span class="en">Only in the bathroom. Enjoy warm tiles after a cold day in the mountains.</span>
+            <span class="cs">Pouze v koupelně. Užijte si teplé dlaždice po chladném dni v horách.</span>
           </div>
         </div>
         <div class="rule-card reveal">
@@ -761,14 +780,14 @@
           <div class="rule-icon">🐾</div>
           <div class="rule-title"><span class="en">No pets</span><span class="cs">Bez mazlíčků</span></div>
           <div class="rule-text">
-            <span class="en">Terka loves all animals — but the floor doesn't. Sorry, furry ones.</span>
-            <span class="cs">Terka miluje všechna zvířata — ale podlaha ne. Promiňte, chlupáči.</span>
+            <span class="en">Terka loves all animals, but the floor doesn't. Sorry, furry ones.</span>
+            <span class="cs">Terka miluje všechna zvířata, ale podlaha ne. Promiňte, chlupáči.</span>
           </div>
         </div>
       </div>
       <div class="rules-spirits reveal">
-        <span class="en">"Do not wander around the house after dark. There are spirits everywhere." — The Hosts</span>
-        <span class="cs">„Po setmění se neprocházejte po domě. Všude jsou duchové." — Hostitelé</span>
+        <span class="en">"Do not wander around the house after dark. There are spirits everywhere." The Hosts</span>
+        <span class="cs">„Po setmění se neprocházejte po domě. Všude jsou duchové." Hostitelé</span>
       </div>
     </div>
   </section>
@@ -805,8 +824,8 @@
           </div>
           <div class="person-card-body">
             <p class="person-bio">
-              <span class="en">The greatest dog whisperer in Krušné hory. She knows everything about the Ore Mountains. If she is not smiling, something is wrong. Accompanied at all times by Amálka — 3× Dog Olympics champion, particularly strong in mathematics and ski chewing.</span>
-              <span class="cs">Největší psí šeptačka v Krušných horách. Zná hory jako svoji botu. Pokud se nesměje, něco je špatně. Doprovázena Amálkou — trojnásobnou olympijskou šampionkou, obzvláště silnou v matematice a žvýkání lyží.</span>
+              <span class="en">The greatest dog whisperer in Krušné hory. She knows everything about the Ore Mountains. If she is not smiling, something is wrong. Accompanied at all times by Amálka, 3× Dog Olympics champion, particularly strong in mathematics and ski chewing.</span>
+              <span class="cs">Největší psí šeptačka v Krušných horách. Zná hory jako svoji botu. Pokud se nesměje, něco je špatně. Doprovázena Amálkou, trojnásobnou olympijskou šampionkou, obzvláště silnou v matematice a žvýkání lyží.</span>
             </p>
           </div>
         </div>
@@ -869,8 +888,8 @@
             <div class="trip-tag">⛷ <span class="en">Skiing & Snowboarding</span><span class="cs">Lyžování & Snowboard</span></div>
             <div class="trip-title">Klínovec, Abertamy &amp; Pernink</div>
             <p class="trip-text">
-              <span class="en">Three resorts within easy reach — Klínovec is the highest peak in Bohemia. Abertamy and the Ski Ring in Pernink offer a more relaxed vibe. Terka is a professional ski instructor — if she has time, she's happy to improve your technique. Just ask!</span>
-              <span class="cs">Tři střediska v dosahu — Klínovec je nejvyšší vrchol Čech. Abertamy a Ski Ring v Perninku nabízí klidnější atmosféru. Terka je profesionální instruktorka — pokud má čas, ráda zlepší vaši techniku. Stačí se zeptat!</span>
+              <span class="en">Three resorts within easy reach: Klínovec is the highest peak in Bohemia. Abertamy and the Ski Ring in Pernink offer a more relaxed vibe. Terka is a professional ski instructor, if she has time, she's happy to improve your technique. Just ask!</span>
+              <span class="cs">Tři střediska v dosahu: Klínovec je nejvyšší vrchol Čech. Abertamy a Ski Ring v Perninku nabízí klidnější atmosféru. Terka je profesionální instruktorka, pokud má čas, ráda zlepší vaši techniku. Stačí se zeptat!</span>
             </p>
           </div>
         </div>
@@ -917,8 +936,8 @@
             <div class="trip-tag">🥾 <span class="en">Hiking Trails</span><span class="cs">Turistické trasy</span></div>
             <div class="trip-title"><span class="en">The Ore Mountains on foot</span><span class="cs">Krušné hory pěšky</span></div>
             <p class="trip-text">
-              <span class="en">We have plenty of trails to recommend — but some secrets are better shared in person. Ask us when you arrive and we'll point you to the ones tourists never find. The Berggeist might be watching.</span>
-              <span class="cs">Máme spoustu tras k doporučení — ale některá tajemství se lépe sdílí osobně. Zeptejte se nás při příjezdu a ukážeme vám ty, které turisté nikdy nenajdou. Berggeist možná sleduje.</span>
+              <span class="en">We have plenty of trails to recommend, but some secrets are better shared in person. Ask us when you arrive and we'll point you to the ones tourists never find. The Berggeist might be watching.</span>
+              <span class="cs">Máme spoustu tras k doporučení, ale některá tajemství se lépe sdílí osobně. Zeptejte se nás při příjezdu a ukážeme vám ty, které turisté nikdy nenajdou. Berggeist možná sleduje.</span>
             </p>
           </div>
         </div>
@@ -969,8 +988,8 @@
             <div class="trip-tag">🏊 <span class="en">Natural Swimming Pond</span><span class="cs">Přírodní koupaliště</span></div>
             <div class="trip-title"><span class="en">Follow the church path</span><span class="cs">Vydejte se ke kostelu</span></div>
             <p class="trip-text">
-              <span class="en">Head towards the church, take a left, continue a bit, then right and uphill. Or just use <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a> — far better than Google in Czech countryside.</span>
-              <span class="cs">Jděte ke kostelu, doleva, kousek rovně, pak doprava a do kopce. Nebo prostě použijte <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a> — v česku daleko lepší než Google.</span>
+              <span class="en">Head towards the church, take a left, continue a bit, then right and uphill. Or just use <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a>, far better than Google in Czech countryside.</span>
+              <span class="cs">Jděte ke kostelu, doleva, kousek rovně, pak doprava a do kopce. Nebo prostě použijte <a href="http://mapy.cz" target="_blank" rel="noopener noreferrer">Mapy.cz</a>, v česku daleko lepší než Google.</span>
             </p>
           </div>
         </div>
@@ -1075,8 +1094,8 @@
               <div class="contact-item-text">
                 <strong><span class="en">Minimum stay</span><span class="cs">Minimální pobyt</span></strong>
                 <p>
-                  <span class="en">2 nights — or talk to us. We'll work something out.</span>
-                  <span class="cs">2 noci — nebo se ozvěte. Domluvíme se.</span>
+                  <span class="en">2 nights, or talk to us. We'll work something out.</span>
+                  <span class="cs">2 noci, nebo se ozvěte. Domluvíme se.</span>
                 </p>
               </div>
             </div>
@@ -1086,13 +1105,63 @@
           <div class="pricing-box">
             <div class="pricing-amount">€100 <span>/ <span class="en">night</span><span class="cs">noc</span></span></div>
             <p class="pricing-note">
-              <span class="en">Direct booking — no platform fees. Just us.</span>
-              <span class="cs">Přímá rezervace — bez poplatků platformy. Jen my.</span>
+              <span class="en">Direct booking, no platform fees. Just us.</span>
+              <span class="cs">Přímá rezervace, bez poplatků platformy. Jen my.</span>
             </p>
-            <a href="tel:+420605288014" class="pricing-cta">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span class="en">Call to book</span><span class="cs">Zavolejte a rezervujte</span>
-            </a>
+            <form id="booking-form" class="booking-form" novalidate>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label><span class="en">Full name</span><span class="cs">Jméno</span></label>
+                  <input type="text" name="name" required placeholder="Jan Novák">
+                </div>
+                <div class="form-group">
+                  <label><span class="en">Phone</span><span class="cs">Telefon</span></label>
+                  <input type="tel" name="phone" placeholder="+420 605 ...">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required placeholder="jan@email.cz">
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label><span class="en">Arrival</span><span class="cs">Příjezd</span></label>
+                  <input type="date" name="arrival" required>
+                </div>
+                <div class="form-group">
+                  <label><span class="en">Departure</span><span class="cs">Odjezd</span></label>
+                  <input type="date" name="departure" required>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label><span class="en">Guests</span><span class="cs">Počet hostů</span></label>
+                  <select name="guests">
+                    <option value="1">1</option>
+                    <option value="2" selected>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>&nbsp;</label>
+                  <div class="form-checkboxes">
+                    <label class="checkbox-label">
+                      <input type="checkbox" name="trip_type" value="Rodina & Kamarádi">
+                      <span><span class="en">Family & Friends</span><span class="cs">Rodina & Kamarádi</span></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><span class="en">Message (optional)</span><span class="cs">Zpráva (volitelně)</span></label>
+                <textarea name="message" rows="2" placeholder="Máte na něco chuť? Nebo chcete doporučit kam zajít na super procházku? napište si..."></textarea>
+              </div>
+              <button type="submit" class="pricing-cta" id="booking-submit">
+                <span class="en">Send enquiry</span><span class="cs">Odeslat poptávku</span>
+              </button>
+              <div id="form-status" class="form-status"></div>
+            </form>
           </div>
         </div>
       </div>
@@ -1118,6 +1187,58 @@
   </div>
 
   <script>
+    // ── Booking form
+    const FORMSPREE_URL = 'https://formspree.io/f/xgonbbnz';
+
+    document.getElementById('booking-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('booking-submit');
+      const status = document.getElementById('form-status');
+      const isEn = document.documentElement.lang === 'en';
+
+      // Basic validation
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const arrival = form.arrival.value;
+      const departure = form.departure.value;
+      if (!name || !email || !arrival || !departure) {
+        status.className = 'form-status error';
+        status.textContent = isEn ? 'Please fill in all required fields.' : 'Vyplňte prosím všechna povinná pole.';
+        return;
+      }
+      if (arrival >= departure) {
+        status.className = 'form-status error';
+        status.textContent = isEn ? 'Departure must be after arrival.' : 'Odjezd musí být po příjezdu.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+      status.className = 'form-status';
+
+      try {
+        const res = await fetch(FORMSPREE_URL, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+        if (res.ok) {
+          status.className = 'form-status success';
+          status.textContent = isEn ? '✓ Sent! We\'ll be in touch soon.' : '✓ Odesláno! Brzy se ozveme.';
+          form.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        status.className = 'form-status error';
+        status.textContent = isEn ? 'Something went wrong. Please call us.' : 'Něco se nepovedlo. Zavolejte nám prosím.';
+      }
+
+      btn.disabled = false;
+      btn.style.opacity = '';
+    });
+
     // ── Nav scroll
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
