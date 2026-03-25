@@ -1241,14 +1241,12 @@
 
   <script>
     // ── Booking form
-    const FORMSPREE_URL = 'https://formspree.io/f/xgonbbnz';
-
     document.getElementById('booking-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const form = e.target;
       const btn = document.getElementById('booking-submit');
       const status = document.getElementById('form-status');
-      const isEn = document.documentElement.lang === 'en';
+      const lang = document.documentElement.lang;
 
       // Basic validation
       const name = form.name.value.trim();
@@ -1257,12 +1255,12 @@
       const departure = form.departure.value;
       if (!name || !email || !arrival || !departure) {
         status.className = 'form-status error';
-        status.textContent = isEn ? 'Please fill in all required fields.' : 'Vyplňte prosím všechna povinná pole.';
+        status.textContent = lang === 'en' ? 'Please fill in all required fields.' : lang === 'de' ? 'Bitte füllen Sie alle Pflichtfelder aus.' : 'Vyplňte prosím všechna povinná pole.';
         return;
       }
       if (arrival >= departure) {
         status.className = 'form-status error';
-        status.textContent = isEn ? 'Departure must be after arrival.' : 'Odjezd musí být po příjezdu.';
+        status.textContent = lang === 'en' ? 'Departure must be after arrival.' : lang === 'de' ? 'Abreise muss nach Anreise sein.' : 'Odjezd musí být po příjezdu.';
         return;
       }
 
@@ -1271,21 +1269,30 @@
       status.className = 'form-status';
 
       try {
-        const res = await fetch(FORMSPREE_URL, {
+        const res = await fetch('/api/booking', {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(form),
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            phone: form.phone.value.trim(),
+            email,
+            arrival,
+            departure,
+            guests: form.guests.value,
+            trip_type: form.trip_type?.checked ? form.trip_type.value : '',
+            message: form.message.value.trim(),
+          }),
         });
         if (res.ok) {
           status.className = 'form-status success';
-          status.textContent = isEn ? '✓ Sent! We\'ll be in touch soon.' : '✓ Odesláno! Brzy se ozveme.';
+          status.textContent = lang === 'en' ? '✓ Sent! We\'ll be in touch soon.' : lang === 'de' ? '✓ Gesendet! Wir melden uns bald.' : '✓ Odesláno! Brzy se ozveme.';
           form.reset();
         } else {
           throw new Error();
         }
       } catch {
         status.className = 'form-status error';
-        status.textContent = isEn ? 'Something went wrong. Please call us.' : 'Něco se nepovedlo. Zavolejte nám prosím.';
+        status.textContent = lang === 'en' ? 'Something went wrong. Please call us.' : lang === 'de' ? 'Etwas ist schiefgelaufen. Rufen Sie uns an.' : 'Něco se nepovedlo. Zavolejte nám prosím.';
       }
 
       btn.disabled = false;
